@@ -13,12 +13,12 @@ contract CFNFT is ERC721, Pausable, Ownable, ReentrancyGuard {
     using SafeMath for uint256;
 
     uint256 public immutable MAX_SUPPLY;
-    string private BASE_URI;
     address public immutable TREASURY_ADDRESS;
     address public immutable DEV_ADDRESS;
     uint256 public immutable TREASURY_FEE;
     uint256 public immutable DEV_FEE;
 
+    string public BASE_URI;
     uint256 public totalSupply;
     mapping(address => bool) public nftOwners;
 
@@ -47,12 +47,6 @@ contract CFNFT is ERC721, Pausable, Ownable, ReentrancyGuard {
 
     function tokenURI(uint256 tokenId) public view override returns (string memory) {
         require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
-        return _baseURI();
-    }
-
-    // --------------------------------------------------------------------
-
-    function _baseURI() internal view override returns (string memory) {
         return BASE_URI;
     }
 

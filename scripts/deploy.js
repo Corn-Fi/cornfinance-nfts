@@ -39,13 +39,12 @@ const deploy = async (name, symbol, maxSupply, URI, treasuryAddr, devAddr, treas
 }
 
 
-
 async function main() {
-  await deploy(
-    "test nft1",                                                                          // name
-    "tnft1",                                                                              // symbol
-    10,                                                                                   // max supply
-    "https://gateway.pinata.cloud/ipfs/QmcNJwDXsuPWMQET7XbQNXoCsFHPDgcBZpL5MnrdQKhUA1",   // uri
+  const nft = await deploy(
+    "test nft1",                                                                          // name               // <<---------- CHANGE !!!!!!
+    "tnft1",                                                                              // symbol             // <<---------- CHANGE !!!!!!
+    42,                                                                                   // max supply
+    "https://gateway.pinata.cloud/ipfs/QmcNJwDXsuPWMQET7XbQNXoCsFHPDgcBZpL5MnrdQKhUA1",   // uri                // <<---------- CHANGE !!!!!!
     "0x93F835b9a2eec7D2E289c1E0D50Ad4dEd88b253f",                                         // treasury
     "0xfC484aFB55D9EA9E186D8De55A0Aa24cbe772a19",                                         // dev
     ethers.utils.parseUnits("42", 10),                                                    // treasury fee (MATIC)
@@ -53,29 +52,35 @@ async function main() {
   )
 
   await deploy(
-    "test nft2", 
-    "tnft2", 
-    10, 
-    "https://gateway.pinata.cloud/ipfs/QmcNJwDXsuPWMQET7XbQNXoCsFHPDgcBZpL5MnrdQKhUA1", 
-    "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+    "test nft2",                                                                          // <<---------- CHANGE !!!!!!
+    "tnft2",                                                                              // <<---------- CHANGE !!!!!!
+    42, 
+    "https://gateway.pinata.cloud/ipfs/QmcNJwDXsuPWMQET7XbQNXoCsFHPDgcBZpL5MnrdQKhUA1",   // <<---------- CHANGE !!!!!!
     "0x93F835b9a2eec7D2E289c1E0D50Ad4dEd88b253f",
     "0xfC484aFB55D9EA9E186D8De55A0Aa24cbe772a19",
-    ethers.utils.parseUnits("42", 10),
-    ethers.utils.parseUnits("58", 10)
+    ethers.utils.parseUnits("42", 16),
+    ethers.utils.parseUnits("58", 16)
   )
 
   await deploy(
-    "test nft3", 
-    "tnft3", 
-    10, 
-    "https://gateway.pinata.cloud/ipfs/QmcNJwDXsuPWMQET7XbQNXoCsFHPDgcBZpL5MnrdQKhUA1", 
-    "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+    "test nft3",                                                                          // <<---------- CHANGE !!!!!!
+    "tnft3",                                                                              // <<---------- CHANGE !!!!!!
+    42, 
+    "https://gateway.pinata.cloud/ipfs/QmcNJwDXsuPWMQET7XbQNXoCsFHPDgcBZpL5MnrdQKhUA1",   // <<---------- CHANGE !!!!!!
     "0x93F835b9a2eec7D2E289c1E0D50Ad4dEd88b253f",
     "0xfC484aFB55D9EA9E186D8De55A0Aa24cbe772a19",
-    ethers.utils.parseUnits("42", 10),
-    ethers.utils.parseUnits("58", 10)
+    ethers.utils.parseUnits("42", 16),
+    ethers.utils.parseUnits("58", 16)
   )
+
+
+
+  // await mint(nft, ethers.utils.parseUnits("100", 10))
+
+
 }
+
+
 
 // We recommend this pattern to be able to use async/await everywhere
 // and properly handle errors.
