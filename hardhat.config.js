@@ -1,5 +1,6 @@
 require("@nomiclabs/hardhat-waffle");
 require('@openzeppelin/hardhat-upgrades');
+require('dotenv').config()
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -23,6 +24,7 @@ module.exports = {
   networks: {
     maticMainnet: {
       url: "https://polygon-mainnet.g.alchemy.com/v2/p2YbSPZPtrU2ZpuOq7udR4sXMERMgV3r",
+      chainId: 137,
       accounts: [process.env.PRIVATE_KEY],
       gasPrice: 35000000000
     },
