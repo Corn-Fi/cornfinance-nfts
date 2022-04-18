@@ -6,7 +6,7 @@ const NFT = require("../artifacts/contracts/CFNT.sol/CFNFT.json");
 
 // fetchies
 const fetchSigner = async () => {
-    const provider = new ethers.providers.JsonRpcProvider("https://rpc-mainnet.maticvigil.com/v1/4b331c188697971af1cd6f05bb7065bc358b7e89");
+    const provider = new ethers.providers.JsonRpcProvider("YOUR_RPC");
     const wallet = new ethers.Wallet(process.env.PRIVATE_KEY);
     const signer = wallet.connect(provider);
     console.log(`connected to ${signer.address}`);
@@ -41,21 +41,21 @@ const deploy = async (name, symbol, maxSupply, URI, treasuryAddr, devAddr, treas
 
 async function main() {
   const nft = await deploy(
-    "test nft1",                                                                          // name               // <<---------- CHANGE !!!!!!
-    "tnft1",                                                                              // symbol             // <<---------- CHANGE !!!!!!
+    "test nft1",                                                                          // name               
+    "tnft1",                                                                              // symbol             
     42,                                                                                   // max supply
-    "https://gateway.pinata.cloud/ipfs/QmcNJwDXsuPWMQET7XbQNXoCsFHPDgcBZpL5MnrdQKhUA1",   // uri                // <<---------- CHANGE !!!!!!
+    "https://gateway.pinata.cloud/ipfs/QmcNJwDXsuPWMQET7XbQNXoCsFHPDgcBZpL5MnrdQKhUA1",   // uri                
     "0x93F835b9a2eec7D2E289c1E0D50Ad4dEd88b253f",                                         // treasury
     "0xfC484aFB55D9EA9E186D8De55A0Aa24cbe772a19",                                         // dev
-    ethers.utils.parseUnits("42", 10),                                                    // treasury fee (MATIC)
-    ethers.utils.parseUnits("58", 10)                                                     // dev fee (MATIC)
+    ethers.utils.parseUnits("42", 16),                                                    // treasury fee (MATIC)
+    ethers.utils.parseUnits("58", 16)                                                     // dev fee (MATIC)
   )
 
   await deploy(
-    "test nft2",                                                                          // <<---------- CHANGE !!!!!!
-    "tnft2",                                                                              // <<---------- CHANGE !!!!!!
+    "test nft2",                                                                        
+    "tnft2",                                                                              
     42, 
-    "https://gateway.pinata.cloud/ipfs/QmcNJwDXsuPWMQET7XbQNXoCsFHPDgcBZpL5MnrdQKhUA1",   // <<---------- CHANGE !!!!!!
+    "https://gateway.pinata.cloud/ipfs/QmcNJwDXsuPWMQET7XbQNXoCsFHPDgcBZpL5MnrdQKhUA1",   
     "0x93F835b9a2eec7D2E289c1E0D50Ad4dEd88b253f",
     "0xfC484aFB55D9EA9E186D8De55A0Aa24cbe772a19",
     ethers.utils.parseUnits("42", 16),
@@ -63,21 +63,15 @@ async function main() {
   )
 
   await deploy(
-    "test nft3",                                                                          // <<---------- CHANGE !!!!!!
-    "tnft3",                                                                              // <<---------- CHANGE !!!!!!
+    "test nft3",                                                                      
+    "tnft3",                                                                           
     42, 
-    "https://gateway.pinata.cloud/ipfs/QmcNJwDXsuPWMQET7XbQNXoCsFHPDgcBZpL5MnrdQKhUA1",   // <<---------- CHANGE !!!!!!
+    "https://gateway.pinata.cloud/ipfs/QmcNJwDXsuPWMQET7XbQNXoCsFHPDgcBZpL5MnrdQKhUA1",   
     "0x93F835b9a2eec7D2E289c1E0D50Ad4dEd88b253f",
     "0xfC484aFB55D9EA9E186D8De55A0Aa24cbe772a19",
     ethers.utils.parseUnits("42", 16),
     ethers.utils.parseUnits("58", 16)
   )
-
-
-
-  // await mint(nft, ethers.utils.parseUnits("100", 10))
-
-
 }
 
 
