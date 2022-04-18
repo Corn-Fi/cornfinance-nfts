@@ -23,7 +23,7 @@ module.exports = {
   defaultNetwork: "hardhat",
   networks: {
     maticMainnet: {
-      url: "https://polygon-mainnet.g.alchemy.com/v2/p2YbSPZPtrU2ZpuOq7udR4sXMERMgV3r",
+      url: "YOUR_RPC",
       chainId: 137,
       accounts: [process.env.PRIVATE_KEY],
       gasPrice: 35000000000
